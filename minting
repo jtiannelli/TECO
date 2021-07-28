@@ -1,0 +1,28 @@
+bal =	Pull TECO backing Asset Balance
+      #v.0.1 will be two test net wallets, 1 ETH and 1 BTC; v1.0 will use mainnet wallets
+           <address>.balance {uint256}
+tt	= Pull total number of TECO Tokens currently in existence
+      #v0.1 will be testnet TECO issuing smart contract address, v1.0 will be mainnet
+            function totalsupply(?)
+cpETH =	Pull Ethereum current price from Chainlink Ethereum Price Feed
+    Chainlink Aggregatorv3Interface (PriceConsumer V3)
+
+cpBTC	= Pull Bitcoin current price from Chainlink Ethereum Price Feed
+    Chainlink Aggregatorv3Interface (PriceConsumer V3)
+
+cvETH	= Multiply balETH by cpETH to 
+     calculates total value of Ethereum in backing asset wallet
+
+cvBTC	= Multiple balBTC by cpBTC to 
+     calculates total value of Bitcoin in backing asset wallet
+
+cvTotal =	Add cvETH and cvBTC together
+   yields total value of all backing assets
+
+ctv	= Divide cvTotal  by tt
+     yields current token value 
+
+
+Check	If user wallet has deposited ctv x 1.01 allow token to be minted
+Mint 	Mint token and deliver to user wallet
+
