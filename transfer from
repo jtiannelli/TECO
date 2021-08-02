@@ -1,0 +1,27 @@
+This is the function that a spender calls to spend an allowance. This requires two operations: transfer the amount being spent and reduce the allowance by that amount.
+
+    /**
+     * @dev See {IERC20-transferFrom}.
+     *
+     * Emits an {Approval} event indicating the updated allowance. This is not
+     * required by the EIP. See the note at the beginning of {ERC20}.
+     *
+     * Requirements:
+     *
+     * - `sender` and `recipient` cannot be the zero address.
+     * - `sender` must have a balance of at least `amount`.
+     * - the caller must have allowance for ``sender``'s tokens of at least
+     * `amount`.
+     */
+    function transferFrom(address sender, address recipient, uint256 amount) public virtual
+                                                override returns (bool) {
+        _transfer(sender, recipient, amount);
+
+Show all
+📋 Copy
+The a.sub(b, "message") function call does two things. First, it calculates a-b, which is the new allowance. Second, it checks that this result is not negative. If it is negative the call reverts with the provided message. Note that when a call reverts any processing done previously during that call is ignored so we don't need to undo the _transfer.
+
+        _approve(sender, _msgSender(), _allowances[sender][_msgSender()].sub(amount,
+             "ERC20: transfer amount exceeds allowance"));
+        return true;
+    }
