@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20Detailed.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol";
+import "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol"
 contract ExampleToken is ERC20 {
 constructor ()
 ERC20("TechCollect", "TECO", "18")
