@@ -1,17 +1,12 @@
-// contracts/TechCollect.sol
+// contracts/TechCollectTestA.sol
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.7.6;
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/token/ERC20/ERC20Detailed.sol";
-import "@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol";
-import "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol";
+import " https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol";
+import " https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol";
 
-contract TechCollect is ERC20, ERC20Detailed, ERC20Burnable, ERC20Mintable {
+
+contract TechCollectTestA is ERC20, IERC20 {
  constructor ()
-ERC20("TechCollect", "TECO", "18")  
-
- {
+ERC20("TechCollectTest1", "TECOTA", "18")  
      
  }
